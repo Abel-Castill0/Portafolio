@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | Abel Castillo</title>
+  <!-- Bootstrap, Animate.css, AOS, FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<!-- Botón Modo Claro/Oscuro -->
+<div class="position-fixed top-0 end-0 m-3 z-3">
+  <button id="themeToggle" class="btn btn-outline-light btn-sm">Modo Claro</button>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Abel Castillo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">Sobre mí</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certs">Certificados</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="text-center text-white py-5 bg-dark">
+  <div class="container animate__animated animate__fadeIn">
+    <h1 class="display-4">Hola, soy Abel Castillo</h1>
+    <p class="lead">Desarrollador Web Full Stack apasionado por el Frontend y Backend</p>
+    <a href="pdf/CV_Abel_Castillo.pdf" class="btn btn-primary btn-lg mt-3" download>Descargar CV</a>
+    <div class="social-icons mt-4">
+      <a href="https://discord.com/users/tu_usuario" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="mailto:tuemail@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/tu_usuario" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://facebook.com/tu_usuario" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/51999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/tu_usuario" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</header>
+
+<!-- Sobre mí -->
+<section id="about" class="container text-center" data-aos="fade-up">
+  <h2 class="mb-4">Sobre mí</h2>
+  <p>Soy estudiante de Ingeniería de Software en la UTP. Tengo experiencia desarrollando proyectos reales en frontend y backend, y formación en ciberseguridad por Cisco. Me apasiona crear soluciones web completas, escalables y seguras.</p>
+</section>
+
+<!-- Proyectos -->
+<section id="projects" class="bg-dark text-white" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center mb-4">Proyectos</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="assets/img/libreria.jpg" class="card-img-top" alt="Librería">
+          <div class="card-body">
+            <h5 class="card-title">Intranet para Librería</h5>
+            <p>Gestión de ventas, productos y almacén para una tienda escolar.</p>
+            <span class="badge bg-secondary">HTML</span>
+            <span class="badge bg-secondary">PHP</span>
+            <span class="badge bg-secondary">MySQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <img src="assets/img/sportflexx.jpg" class="card-img-top" alt="SportFlexx">
+          <div class="card-body">
+            <h5 class="card-title">SportFlexx</h5>
+            <p>Tienda online con carrito e intranet para administrar productos y ventas.</p>
+            <span class="badge bg-secondary">HTML</span>
+            <span class="badge bg-secondary">CSS</span>
+            <span class="badge bg-secondary">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Habilidades -->
+<section id="skills" class="container text-center" data-aos="fade-up">
+  <h2 class="mb-4">Habilidades Técnicas</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Frontend: HTML, CSS, JavaScript, Bootstrap</li>
+        <li class="list-group-item">Diseño UI: Responsive, UX, animaciones</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Backend: PHP, MySQL</li>
+        <li class="list-group-item">Ciberseguridad: Cisco (Redes, Terminales, Defensa)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Certificados -->
+<section id="certs" class="bg-dark text-white" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center mb-4">Certificados</h2>
+    <div class="row">
+      <div class="col-md-3 col-6 mb-3">
+        <img src="assets/img/Defensa_De_la_red_virtual.png" class="img-fluid" alt="Cert 1">
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <img src="assets/img/Defensa_en_la_red.png" class="img-fluid" alt="Cert 2">
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <img src="assets/img/Seguridad_de_puntos_finales.png" class="img-fluid" alt="Cert 3">
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <img src="assets/img/Introduccion_a_la_ciberseguridad.png" class="img-fluid" alt="Cert 4">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contact" class="container text-center" data-aos="fade-up">
+  <h2 class="mb-4">Contacto</h2>
+  <form style="max-width: 600px; margin: auto;">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Tu nombre" required>
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" placeholder="Tu email" required>
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" rows="5" placeholder="Tu mensaje" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2025 Abel Castillo - Todos los derechos reservados.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="JS/script.js"></script>
+</body>
+</html>
