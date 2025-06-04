@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio | Abel Castillo</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+    <!-- Estilos y librerías -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- SEO META TAGS -->
+    <meta name="description"
+        content="Portafolio web de Abel Castillo, desarrollador web Full Stack con experiencia en frontend, backend y ciberseguridad.">
+    <meta name="keywords"
+        content="Abel Castillo, portafolio, desarrollador web, frontend, backend, ciberseguridad, HTML, CSS, JavaScript, PHP, UTP">
+    <meta name="author" content="Abel Castillo">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Abel Castillo | Portafolio Web">
+    <meta property="og:description"
+        content="Soy desarrollador web full stack apasionado por el frontend y backend. Mira mis proyectos.">
+    <meta property="og:image" content="https://abel-castill0.github.io/portafolio/assets/img/preview.jpg">
+    <meta property="og:url" content="https://abel-castill0.github.io/portafolio/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Abel Castillo | Portafolio Web">
+    <meta name="twitter:description" content="Proyectos, habilidades y contacto. Full Stack Developer.">
+    <meta name="twitter:image" content="https://abel-castill0.github.io/portafolio/assets/img/preview.jpg">
+</head>
+
+<body>
+    <!-- Botón Modo Claro/Oscuro -->
+    <div class="position-fixed top-0 end-0 m-3 z-3">
+        <button id="themeToggle" class="btn btn-outline-light btn-sm">Modo Claro</button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Abel Castillo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certs">Certificados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mi-experiencia-con-proyectos.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="text-center text-white py-5 bg-dark">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="display-4">Hola, soy Abel Castillo</h1>
+            <p class="lead">Desarrollador Web Full Stack apasionado por el Frontend y Backend</p>
+            <a href="pdf/CV_Abel_Castillo.pdf" class="btn btn-primary btn-lg mt-3" download>Descargar CV</a>
+            <div class="social-icons mt-4">
+                <a href="https://discord.com/users/tu_usuario" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="mailto:abelcastillotrabajo@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/tu_usuario" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://facebook.com/tu_usuario" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/51987945850" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/abelxo_cas" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sobre mí -->
+    <section id="about" class="container text-center" data-aos="fade-up">
+        <h2 class="mb-4">Sobre mí</h2>
+        <p>Soy estudiante de Ingeniería de Software en la UTP. Tengo experiencia desarrollando proyectos reales en
+            frontend y backend, y formación en ciberseguridad por Cisco. Me apasiona crear soluciones web completas,
+            escalables y seguras.</p>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Proyectos</h2>
+            <div class="row justify-content-center" id="projects-container">
+
+                <!-- Proyecto 1 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-right">
+                    <div class="card h-100 shadow-lg border-0 bg-dark text-white project-card">
+                        <img src="../assets/img/LibreriaYarin.png" class="card-img-top"
+                            alt="Administrative dashboard interface for a school bookstore intranet showing a sales registration form with fields for client, payment method, product, quantity, and price. The sidebar menu on the left lists options such as Dashboard, Products, Sales, New Sale, Purchases, New Purchase, Clients, Suppliers, and Storage. The color scheme is dark with blue and green highlights. The overall tone is professional and organized. The visible text includes Registrar Nueva Venta, Detalles de la Venta, Buscar Cliente, Cliente, Método de Pago, Tipo de Pago, Buscar Producto, Cantidad, Precio Unitario, Añadir Producto, Total Venta 0.00 soles, Registrar Venta, and Almacén.">
+                        <div class="card-body">
+                            <h5 class="card-title">Intranet para Librería</h5>
+                            <p class="card-text">
+                                Sistema web para gestionar ventas, productos y almacén para una tienda escolar.
+                            </p>
+                            <div class="mb-2">
+                                <span class="badge bg-success"><i class="fab fa-html5 me-1"></i> HTML</span>
+                                <span class="badge bg-primary"><i class="fab fa-php me-1"></i> PHP</span>
+                                <span class="badge bg-warning text-dark"><i class="fas fa-database me-1"></i>
+                                    MySQL</span>
+                            </div>
+                            <a href="../Proyectos/LibreriaYarin.zip" class="btn btn-outline-light btn-sm mt-2" download>
+                                <i class="fas fa-download me-1"></i> Descargar ZIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-left">
+                    <div class="card h-100 shadow-lg border-0 bg-dark text-white project-card">
+                        <img src="../assets/img/LibreriaYarin.png" class="card-img-top"
+                            alt="Vista de la tienda online SportFlexx mostrando productos de ropa en una interfaz limpia y moderna con colores oscuros y botones destacados">
+                        <div class="card-body">
+                            <h5 class="card-title">SportFlexx</h5>
+                            <p class="card-text">
+                                Tienda online con catálogo, carrito de compras e intranet de administración.
+                            </p>
+                            <div class="mb-2">
+                                <span class="badge bg-success"><i class="fab fa-html5 me-1"></i> HTML</span>
+                                <span class="badge bg-info text-dark"><i class="fab fa-css3-alt me-1"></i> CSS</span>
+                                <span class="badge bg-warning text-dark"><i class="fab fa-js-square me-1"></i>
+                                    JavaScript</span>
+                            </div>
+                            <a href="../Proyectos/Zephyra.zip" class="btn btn-outline-light btn-sm mt-2" download>
+                                <i class="fas fa-download me-1"></i> Descargar ZIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="container py-5" data-aos="fade-up">
+        <h2 class="text-center mb-5">Habilidades Técnicas</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-success border-2">
+                    <div class="card-body text-center">
+                        <i class="fab fa-html5 fa-2x text-success mb-3"></i>
+                        <h5 class="card-title">Frontend</h5>
+                        <p class="card-text">HTML, CSS, JavaScript, Bootstrap, diseño responsive, animaciones y
+                            accesibilidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-info border-2">
+                    <div class="card-body text-center">
+                        <i class="fas fa-database fa-2x text-info mb-3"></i>
+                        <h5 class="card-title">Backend & Base de Datos</h5>
+                        <p class="card-text">
+                            PHP, MySQL y SQL Server. Consultas
+                            complejas, joins, subconsultas, triggers, procedimientos almacenados, diseño relacional,
+                            optimización de rendimiento, seguridad y validación de datos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-warning border-2">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-2x text-warning mb-3"></i>
+                        <h5 class="card-title">Ciberseguridad</h5>
+                        <p class="card-text">Formación Cisco en introducción a la ciberseguridad, defensa de red,
+                            terminales y redes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-primary border-2">
+                    <div class="card-body text-center">
+                        <i class="fas fa-code-branch fa-2x text-primary mb-3"></i>
+                        <h5 class="card-title">Control de versiones</h5>
+                        <p class="card-text">Manejo de Git y GitHub para versionado, ramas, commits y trabajo
+                            colaborativo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-light border-2">
+                    <div class="card-body text-center">
+                        <i class="fas fa-laptop-code fa-2x text-light mb-3"></i>
+                        <h5 class="card-title">Diseño UI/UX</h5>
+                        <p class="card-text">Interfaz amigable, estructura clara, experiencia del usuario y prototipado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                <div class="card bg-dark text-white h-100 shadow skill-card border-danger border-2">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tools fa-2x text-danger mb-3"></i>
+                        <h5 class="card-title">Herramientas</h5>
+                        <p class="card-text">Visual Studio Code, XAMPP, Figma, Chrome DevTools y entornos locales de
+                            desarrollo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificados Carousel -->
+    <section id="certs" class="bg-dark text-white py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-4">Certificados</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../assets/img/Excel_basico.png" alt="Certificado 4"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Excel_intermedio.png" alt="Certificado 5"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Excel_avanzado.png" alt="Certificado 3"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Defensa_De_la_red_virtual.png" alt="Certificado 1"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Defensa_en_la_red.png" alt="Certificado 2"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Introduccion_a_la_ciberseguridad_virtual.png"
+                            alt="Certificado 6" class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Introduccion_a_la_ciberseguridad.png"
+                            alt="Certificado 7" class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Introduccion_A_redes.png" alt="Certificado 8"
+                            class="img-fluid rounded shadow"></div>
+                    <div class="swiper-slide"><img src="../assets/img/Seguridad_de_puntos_finales.png"
+                            alt="Certificado 9" class="img-fluid rounded shadow"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="container text-center py-5" data-aos="fade-up">
+        <h2 class="mb-4">Contacto</h2>
+        <p class="mb-4 text-muted">¿Tienes un proyecto o deseas contactarme? Escríbeme directamente desde aquí:</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form action="https://formspree.io/f/xovwqydb" method="POST"
+                    class="p-4 rounded bg-dark border border-secondary shadow">
+                    <div class="mb-3 text-start">
+                        <label for="name" class="form-label fw-semibold text-white"><i
+                                class="fas fa-user me-2 text-success"></i>Nombre completo</label>
+                        <input type="text" name="name" id="name" class="form-control form-control-lg"
+                            placeholder="Tu nombre" required>
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="email" class="form-label fw-semibold text-white"><i
+                                class="fas fa-envelope me-2 text-success"></i>Email</label>
+                        <input type="email" name="_replyto" id="email" class="form-control form-control-lg"
+                            placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label for="message" class="form-label fw-semibold text-white"><i
+                                class="fas fa-comment-dots me-2 text-success"></i>Mensaje</label>
+                        <textarea name="message" id="message" class="form-control form-control-lg" rows="5"
+                            placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Abel Castillo - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+    <script>
+        AOS.init();
+        const swiper = new Swiper('.mySwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>

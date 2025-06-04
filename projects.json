@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "Intranet para LibreríaYarin",
+    "descripcion": "Sistema web para gestionar ventas, almacén y productos de una librería escolar.",
+    "imagen": "assets/img/LibreriaYarin.png",
+    "tecnologias": ["HTML","CSS","JavaScript", "PHP", "MySQL"],
+    "link": "Proyectos/LibreriaYarin.zip"
+  },
+  {
+    "nombre": "Zephyra",
+    "descripcion": "Tienda virtual de ropa con carrito e intranet de gestión.",
+    "imagen": "assets/img/Zephyra.jpg",
+    "tecnologias": ["HTML", "CSS", "JavaScript", "PHP"],
+    "link": "Proyectos/Zephyra.zip"
+  }
+]
