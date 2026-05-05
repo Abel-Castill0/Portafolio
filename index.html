@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abel Castillo — Software Engineer</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Abel Castillo — Software Engineer especializado en desarrollo web full stack, UI/UX y sistemas inteligentes con IA. Disponible para proyectos freelance y oportunidades laborales."
+    />
+    <meta
+      name="keywords"
+      content="Abel Castillo, Software Engineer, desarrollador web, full stack, frontend, backend, PHP, JavaScript, MySQL, IA, portafolio, Lima, Perú"
+    />
+    <meta name="author" content="Abel Castillo" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Abel Castillo — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software Engineer especializado en desarrollo web, UI/UX e integración de IA."
+    />
+    <meta
+      property="og:image"
+      content="https://abel-castill0.github.io/portafolio/assets/img/preview.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://abel-castill0.github.io/portafolio/"
+    />
+    <meta property="og:type" content="website" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abel Castillo — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Software Engineer. Proyectos reales, código limpio, diseño profesional."
+    />
+  </head>
+
+  <body>
+    <!-- Background layers -->
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════════════ -->
+    <nav id="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Abel Castillo - inicio">
+          <div class="nav-logo-mark" aria-hidden="true">AC</div>
+          Abel Castillo
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#about" data-section="about">Sobre mí</a></li>
+          <li><a href="#skills" data-section="skills">Habilidades</a></li>
+          <li><a href="#projects" data-section="projects">Proyectos</a></li>
+          <li><a href="#certs" data-section="certs">Certificados</a></li>
+          <li><a href="#contact" data-section="contact">Contacto</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a
+            href="assets/pdf/CV_Abel_Castillo.pdf"
+            class="btn btn-outline"
+            download
+            aria-label="Descargar CV"
+          >
+            <i class="fas fa-arrow-down" aria-hidden="true"></i> CV
+          </a>
+          <a href="#contact" class="btn btn-primary">Conversemos</a>
+        </div>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div
+      class="nav-drawer"
+      id="navDrawer"
+      role="dialog"
+      aria-label="Menú móvil"
+    >
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#certs">Certificados</a>
+      <a href="#contact">Contacto</a>
+      <a href="assets/pdf/CV_Abel_Castillo.pdf" download>Descargar CV</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Presentación">
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-label label">
+            <span>Disponible para nuevas oportunidades</span>
+          </div>
+
+          <h1 class="hero-name">
+            Hola, soy<br />
+            <span class="hero-name-grad">Abel Castillo</span>
+          </h1>
+
+          <p class="hero-role">
+            <span id="typing-role">Software Engineer</span>
+            <span class="hero-role-cursor" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero-desc">
+            Construyo productos digitales con foco en rendimiento, diseño
+            cuidadoso y código limpio. Apasionado por la intersección entre
+            desarrollo web y tecnologías de IA.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-layer-group" aria-hidden="true"></i>
+              Ver proyectos
+            </a>
+            <a
+              href="assets/pdf/CV_Abel_Castillo.pdf"
+              class="btn btn-outline"
+              download
+            >
+              <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+              Descargar CV
+            </a>
+          </div>
+
+          <nav class="hero-socials" aria-label="Redes sociales">
+            <a
+              href="https://github.com/Abel-Castill0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abel-castillo-yarin-388246310/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-social-link"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a
+              href="mailto:abelcastillotrabajo@gmail.com"
+              class="hero-social-link"
+              aria-label="Email"
+            >
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://wa.me/51987945850"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-social-link"
+              aria-label="WhatsApp"
+            >
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://instagram.com/abelxo_cas"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-social-link"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-bar"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       STATS BAR
+  ════════════════════════════════════════════════════════ -->
+    <div id="stats" aria-label="Estadísticas">
+      <div class="container">
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span
+              class="stat-number"
+              data-count="5"
+              data-suffix="+"
+              aria-label="Más de 5 proyectos"
+              >5+</span
+            >
+            <span class="stat-label">Proyectos completados</span>
+          </div>
+
+          <div class="stat-item">
+            <span
+              class="stat-number"
+              data-count="9"
+              data-suffix=""
+              aria-label="9 certificaciones"
+              >9</span
+            >
+            <span class="stat-label">Certificaciones</span>
+          </div>
+
+          <div class="stat-item">
+            <span
+              class="stat-number"
+              data-count="3"
+              data-suffix="+"
+              aria-label="Más de 3 años de experiencia"
+              >3+</span
+            >
+            <span class="stat-label">Años de aprendizaje</span>
+          </div>
+
+          <div class="stat-item">
+            <span
+              class="stat-number"
+              data-count="6"
+              data-suffix=""
+              aria-label="6 stacks tecnológicos"
+              >6</span
+            >
+            <span class="stat-label">Stacks dominados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════════════════ -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Perfil profesional</p>
+          <h2 class="section-title" id="about-heading">Sobre mí</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Soy <strong>Abel Castillo</strong>, estudiante de Ingeniería de
+              Software en la
+              <strong>Universidad Tecnológica del Perú (UTP)</strong>, con foco
+              en construir soluciones web completas, bien diseñadas y orientadas
+              al impacto real.
+            </p>
+            <p>
+              Mi enfoque combina
+              <span class="about-highlight">desarrollo frontend cuidadoso</span
+              >, lógica de backend sólida y diseño de bases de datos eficiente.
+              He desarrollado proyectos que van desde sistemas de gestión
+              empresarial hasta plataformas e-commerce con panel de
+              administración, siempre priorizando la experiencia del usuario.
+            </p>
+            <p>
+              Actualmente exploro la integración de
+              <strong>inteligencia artificial y NLP</strong> en aplicaciones
+              reales — como mi proyecto de análisis de CVs con IA — convencido
+              de que el futuro del software está en combinar ingeniería clásica
+              con capacidades inteligentes.
+            </p>
+            <p>
+              Formación complementaria en
+              <strong>ciberseguridad Cisco</strong> y desarrollo de software
+              orientado a objetos con Java. Mentalidad de aprendizaje continuo,
+              resolución de problemas y atención al detalle.
+            </p>
+
+            <div
+              class="interest-tags"
+              role="list"
+              aria-label="Áreas de interés"
+            >
+              <span class="interest-tag" role="listitem"
+                >Inteligencia Artificial</span
+              >
+              <span class="interest-tag" role="listitem"
+                >NLP & Automatización</span
+              >
+              <span class="interest-tag" role="listitem">UI/UX Design</span>
+              <span class="interest-tag" role="listitem">Full Stack Web</span>
+              <span class="interest-tag" role="listitem">Ciberseguridad</span>
+              <span class="interest-tag" role="listitem">Open Source</span>
+            </div>
+          </div>
+
+          <div class="about-side reveal reveal-delay-2">
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              </div>
+              <div class="info-meta">
+                <p class="info-meta-label">Universidad</p>
+                <p class="info-meta-value">
+                  Universidad Tecnológica del Perú — UTP
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-book-open" aria-hidden="true"></i>
+              </div>
+              <div class="info-meta">
+                <p class="info-meta-label">Carrera</p>
+                <p class="info-meta-value">Ingeniería de Software</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+              </div>
+              <div class="info-meta">
+                <p class="info-meta-label">Ubicación</p>
+                <p class="info-meta-value">Lima, Perú</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-language" aria-hidden="true"></i>
+              </div>
+              <div class="info-meta">
+                <p class="info-meta-label">Idiomas</p>
+                <p class="info-meta-value">
+                  Español (nativo) · Inglés (técnico)
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-circle-dot" aria-hidden="true"></i>
+              </div>
+              <div class="info-meta">
+                <p class="info-meta-label">Estado</p>
+                <p class="info-meta-value" style="color: #34d399">
+                  Disponible para proyectos
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 8px; display: flex; gap: 10px">
+              <a
+                href="assets/pdf/CV_Abel_Castillo.pdf"
+                class="btn btn-ghost"
+                download
+                style="flex: 1; justify-content: center"
+              >
+                <i class="fas fa-file-pdf" aria-hidden="true"></i> Descargar CV
+              </a>
+              <a
+                href="https://github.com/Abel-Castill0"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+                style="flex: 1; justify-content: center"
+              >
+                <i class="fab fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       SKILLS
+  ════════════════════════════════════════════════════════ -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Stack técnico</p>
+          <h2 class="section-title" id="skills-heading">Habilidades</h2>
+          <p class="section-subtitle">
+            Tecnologías que domino y aplico en proyectos reales, desde el diseño
+            de interfaces hasta la arquitectura de bases de datos.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category reveal reveal-delay-1">
+            <div class="skill-cat-icon icon-blue">
+              <i class="fas fa-code" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript ES6+</span>
+              <span class="skill-tag">Bootstrap 5</span>
+              <span class="skill-tag">Responsive Design</span>
+              <span class="skill-tag">Animaciones CSS</span>
+              <span class="skill-tag">Flexbox / Grid</span>
+              <span class="skill-tag">DOM API</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-2">
+            <div class="skill-cat-icon icon-purple">
+              <i class="fas fa-server" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">Backend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">OOP</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Arquitectura MVC</span>
+              <span class="skill-tag">Autenticación</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-3">
+            <div class="skill-cat-icon icon-gold">
+              <i class="fas fa-database" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">Bases de Datos</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">Diseño relacional</span>
+              <span class="skill-tag">Stored Procedures</span>
+              <span class="skill-tag">Triggers</span>
+              <span class="skill-tag">Joins avanzados</span>
+              <span class="skill-tag">Optimización de queries</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-1">
+            <div class="skill-cat-icon icon-cyan">
+              <i class="fas fa-brain" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">IA & Automatización</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">NLP</span>
+              <span class="skill-tag">Análisis de texto</span>
+              <span class="skill-tag">Integración de APIs IA</span>
+              <span class="skill-tag">Automatización de flujos</span>
+              <span class="skill-tag">Procesamiento de datos</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-2">
+            <div class="skill-cat-icon icon-green">
+              <i class="fas fa-shield-halved" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">Ciberseguridad</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Seguridad en redes</span>
+              <span class="skill-tag">Defensa de endpoints</span>
+              <span class="skill-tag">Análisis de amenazas</span>
+              <span class="skill-tag">Cisco NetAcad</span>
+              <span class="skill-tag">Buenas prácticas OWASP</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-3">
+            <div class="skill-cat-icon icon-rose">
+              <i class="fas fa-wrench" aria-hidden="true"></i>
+            </div>
+            <h3 class="skill-cat-title">Herramientas & Flujo</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">XAMPP</span>
+              <span class="skill-tag">Chrome DevTools</span>
+              <span class="skill-tag">Excel avanzado</span>
+              <span class="skill-tag">Postman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════════════════════ -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Trabajo seleccionado</p>
+          <h2 class="section-title" id="projects-heading">Proyectos</h2>
+          <p class="section-subtitle">
+            Soluciones reales construidas con foco en funcionalidad, diseño y
+            valor de negocio.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- PROJECT 1: AVILA PARFUMS (FEATURED) -->
+          <article
+            class="project-card featured reveal"
+            aria-labelledby="proj-avila-title"
+          >
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder">
+                <img src="assets/img/avilaparfums.png" alt="" />
+              </div>
+              <div class="project-overlay">
+                <a
+                  href="https://avilaparfums.com/?v=2"
+                  class="btn btn-primary btn-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver Avila Parfums en vivo"
+                >
+                  <i
+                    class="fas fa-arrow-up-right-from-square"
+                    aria-hidden="true"
+                  ></i>
+                  Ver sitio
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-number">01 / Destacado</span>
+              <h3 class="project-title" id="proj-avila-title">Avila Parfums</h3>
+              <p class="project-desc">
+                Sitio web de marca para una tienda de decants de perfumería de
+                lujo. Diseño premium orientado a la experiencia sensorial del
+                usuario, con arquitectura de producto clara, navegación fluida y
+                estética que refleja el posicionamiento aspiracional de la
+                marca. Enfoque en conversión y branding visual coherente.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">HTML5</span>
+                <span class="stack-tag">CSS3</span>
+                <span class="stack-tag">JavaScript</span>
+                <span class="stack-tag">UI/UX Design</span>
+                <span class="stack-tag">Branding</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Abel-Castill0/AvilaParfums"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver código en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://avilaparfums.com/"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver proyecto en vivo"
+                >
+                  <i
+                    class="fas fa-arrow-up-right-from-square"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: LibreríaYarin -->
+          <article
+            class="project-card reveal reveal-delay-1"
+            aria-labelledby="proj-lib-title"
+          >
+            <div class="project-img-wrap">
+              <img
+                src="assets/img/LibreriaYarin.png"
+                alt="Dashboard del sistema de intranet para LibreríaYarin mostrando módulo de ventas"
+                class="project-img"
+                loading="lazy"
+              />
+              <!-- <div class="project-overlay">
+                <a
+                  href="Proyectos/LibreriaYarin.zip"
+                  class="btn btn-primary btn-sm"
+                  download
+                  aria-label="Descargar LibreríaYarin"
+                >
+                  <i class="fas fa-arrow-down" aria-hidden="true"></i> Descargar
+                </a>
+              </div>!-->
+            </div>
+            <div class="project-body">
+              <span class="project-number">02</span>
+              <h3 class="project-title" id="proj-lib-title">
+                LibreríaYarin — Intranet
+              </h3>
+              <p class="project-desc">
+                Sistema web de gestión integral para librería escolar. Módulos
+                de ventas, control de inventario, registro de clientes y
+                reportes. Arquitectura MVC con PHP y MySQL, panel administrativo
+                con autenticación de usuarios.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">PHP</span>
+                <span class="stack-tag">MySQL</span>
+                <span class="stack-tag">HTML/CSS/JS</span>
+                <span class="stack-tag">Bootstrap</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Abel-Castill0/libreria"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <!--<a
+                  href="Proyectos/LibreriaYarin.zip"
+                  class="project-link"
+                  download
+                  aria-label="Descargar proyecto"
+                >
+                  <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                </a>!-->
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: Zephyra/SportFlexx -->
+          <article
+            class="project-card reveal"
+            aria-labelledby="proj-sport-title"
+          >
+            <div class="project-img-wrap">
+              <div
+                class="project-img-placeholder"
+                style="background: linear-gradient(135deg, #0c0c1e, #1a1a35)"
+              >
+                <i class="fas fa-bag-shopping" aria-hidden="true"></i>
+              </div>
+              <!--<div class="project-overlay">
+                <a
+                  href="Proyectos/Zephyra.zip"
+                  class="btn btn-primary btn-sm"
+                  download
+                  aria-label="Descargar Zephyra"
+                >
+                  <i class="fas fa-arrow-down" aria-hidden="true"></i> Descargar
+                </a>
+              </div>!-->
+            </div>
+            <div class="project-body">
+              <span class="project-number">03</span>
+              <h3 class="project-title" id="proj-sport-title">
+                Zephyra — E-Commerce
+              </h3>
+              <p class="project-desc">
+                Plataforma de comercio electrónico de ropa con catálogo de
+                productos, carrito de compras, proceso de checkout e intranet de
+                gestión de inventario y pedidos para el administrador. Diseño
+                responsivo orientado a conversión.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">HTML/CSS/JS</span>
+                <span class="stack-tag">PHP</span>
+                <span class="stack-tag">MySQL</span>
+                <span class="stack-tag">UX Design</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/SH4M1R/INTRANET_ZEPHYRA"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <!--<a
+                  href="Proyectos/Zephyra.zip"
+                  class="project-link"
+                  download
+                  aria-label="Descargar proyecto"
+                >
+                  <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                </a>!-->
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Java Sales App -->
+          <article
+            class="project-card reveal reveal-delay-1"
+            aria-labelledby="proj-java-title"
+          >
+            <div class="project-img-wrap" style="height: 160px">
+              <div
+                class="project-img-placeholder"
+                style="background: linear-gradient(135deg, #0a1020, #1a2540)"
+              >
+                <i
+                  class="fab fa-java"
+                  aria-hidden="true"
+                  style="color: #f89820"
+                ></i>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-number">04</span>
+              <h3 class="project-title" id="proj-java-title">
+                Sistema de Ventas — Java
+              </h3>
+              <p class="project-desc">
+                Aplicación de escritorio para gestión de ventas desarrollada con
+                Java y principios de Programación Orientada a Objetos. CRUD
+                completo, persistencia de datos y reportes de ventas.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">Java</span>
+                <span class="stack-tag">OOP</span>
+                <span class="stack-tag">Swing/JavaFX</span>
+                <span class="stack-tag">SQL</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Abel-Castill0"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: AI CV Analyzer -->
+          <article
+            class="project-card reveal reveal-delay-2"
+            aria-labelledby="proj-ai-title"
+          >
+            <div class="project-img-wrap" style="height: 160px">
+              <div
+                class="project-img-placeholder"
+                style="background: linear-gradient(135deg, #060614, #10103a)"
+              >
+                <i
+                  class="fas fa-robot"
+                  aria-hidden="true"
+                  style="color: #6394ff"
+                ></i>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-number">05</span>
+              <h3 class="project-title" id="proj-ai-title">
+                CV Analyzer — IA & NLP
+              </h3>
+              <p class="project-desc">
+                Sistema de análisis de currículums vitae mediante inteligencia
+                artificial y procesamiento de lenguaje natural. Extrae
+                habilidades, evalúa compatibilidad con perfiles y genera
+                retroalimentación automatizada.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">Python</span>
+                <span class="stack-tag">NLP</span>
+                <span class="stack-tag">AI API</span>
+                <span class="stack-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Abel-Castill0"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: SQL DB Design -->
+          <article
+            class="project-card reveal reveal-delay-3"
+            aria-labelledby="proj-sql-title"
+          >
+            <div class="project-img-wrap" style="height: 160px">
+              <div
+                class="project-img-placeholder"
+                style="background: linear-gradient(135deg, #0c1008, #182012)"
+              >
+                <i
+                  class="fas fa-diagram-project"
+                  aria-hidden="true"
+                  style="color: #34d399"
+                ></i>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-number">06</span>
+              <h3 class="project-title" id="proj-sql-title">
+                Diseño de Base de Datos
+              </h3>
+              <p class="project-desc">
+                Modelo relacional complejo para sistema empresarial, incluyendo
+                normalización, stored procedures, triggers para auditoría y
+                vistas para reportes analíticos. Optimización de índices y
+                manejo de transacciones.
+              </p>
+              <div class="project-stack">
+                <span class="stack-tag">SQL Server</span>
+                <span class="stack-tag">MySQL</span>
+                <span class="stack-tag">ERD Design</span>
+                <span class="stack-tag">Optimización</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Abel-Castill0"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver en GitHub"
+                >
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- /projects-grid -->
+
+        <div style="text-align: center; margin-top: 48px" class="reveal">
+          <a
+            href="https://github.com/Abel-Castill0"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            <i class="fab fa-github" aria-hidden="true"></i>
+            Ver más en GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       CERTIFICATIONS
+  ════════════════════════════════════════════════════════ -->
+    <section id="certs" aria-labelledby="certs-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Formación continua</p>
+          <h2 class="section-title" id="certs-heading">Certificados</h2>
+          <p class="section-subtitle">
+            Certificaciones de instituciones reconocidas que complementan mi
+            formación universitaria.
+          </p>
+        </div>
+
+        <div
+          class="certs-scroll reveal"
+          role="list"
+          aria-label="Lista de certificados"
+        >
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Introduccion_a_la_ciberseguridad.png"
+              alt="Certificado Cisco: Introducción a la Ciberseguridad"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Introducción a la Ciberseguridad</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Introduccion_a_la_ciberseguridad_virtual.png"
+              alt="Certificado Cisco: Ciberseguridad (virtual)"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Ciberseguridad — Modalidad Virtual</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Defensa_en_la_red.png"
+              alt="Certificado Cisco: Defensa de la Red"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Defensa de la Red</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Defensa_De_la_red_virtual.png"
+              alt="Certificado Cisco: Defensa de Red Virtual"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Defensa de la Red — Virtual</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Seguridad_de_puntos_finales.png"
+              alt="Certificado Cisco: Seguridad de Puntos Finales"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Seguridad de Puntos Finales</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Introduccion_A_redes.png"
+              alt="Certificado Cisco: Introducción a Redes"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Cisco NetAcad</p>
+              <p class="cert-name">Introducción a Redes</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Excel_basico.png"
+              alt="Certificado Excel Básico"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Microsoft Office</p>
+              <p class="cert-name">Excel — Nivel Básico</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Excel_intermedio.png"
+              alt="Certificado Excel Intermedio"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Microsoft Office</p>
+              <p class="cert-name">Excel — Nivel Intermedio</p>
+            </div>
+          </article>
+
+          <article class="cert-card" role="listitem">
+            <img
+              src="assets/img/Excel_avanzado.png"
+              alt="Certificado Excel Avanzado"
+              loading="lazy"
+            />
+            <div class="cert-info">
+              <p class="cert-issuer">Microsoft Office</p>
+              <p class="cert-name">Excel — Nivel Avanzado</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════════════════════ -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">¿Trabajamos juntos?</p>
+          <h2 class="section-title" id="contact-heading">Contacto</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <div>
+              <h3 class="contact-info-title">
+                Hablemos de tu próximo proyecto
+              </h3>
+              <p class="contact-info-desc">
+                Estoy disponible para proyectos freelance, colaboraciones o
+                posiciones de tiempo completo. Si buscas a alguien comprometido
+                con la calidad técnica y el diseño cuidadoso, escríbeme.
+              </p>
+            </div>
+
+            <nav class="contact-links" aria-label="Formas de contacto">
+              <a
+                href="mailto:abelcastillotrabajo@gmail.com"
+                class="contact-link-item"
+              >
+                <div class="contact-link-icon">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                </div>
+                <span>abelcastillotrabajo@gmail.com</span>
+                <i
+                  class="fas fa-arrow-right"
+                  style="margin-left: auto; color: var(--text-3)"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a
+                href="https://wa.me/51987945850"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+              >
+                <div class="contact-link-icon">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                </div>
+                <span>+51 987 945 850</span>
+                <i
+                  class="fas fa-arrow-right"
+                  style="margin-left: auto; color: var(--text-3)"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a
+                href="https://github.com/Abel-Castill0"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+              >
+                <div class="contact-link-icon">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </div>
+                <span>Abel-Castill0</span>
+                <i
+                  class="fas fa-arrow-right"
+                  style="margin-left: auto; color: var(--text-3)"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abel-castillo-yarin-388246310"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+              >
+                <div class="contact-link-icon">
+                  <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </div>
+                <span>LinkedIn Profile</span>
+                <i
+                  class="fas fa-arrow-right"
+                  style="margin-left: auto; color: var(--text-3)"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Contact Form -->
+          <form
+            class="contact-form reveal reveal-delay-2"
+            id="contactForm"
+            action="https://formspree.io/f/xovwqydb"
+            method="POST"
+            novalidate
+            aria-label="Formulario de contacto"
+          >
+            <div class="form-group">
+              <label class="form-label" for="name">Nombre completo</label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Tu nombre"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="_replyto"
+                placeholder="tucorreo@ejemplo.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Asunto</label>
+              <input
+                class="form-input"
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="¿De qué quieres hablar?"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Mensaje</label>
+              <textarea
+                class="form-textarea"
+                id="message"
+                name="message"
+                placeholder="Cuéntame sobre tu proyecto o propuesta..."
+                required
+              ></textarea>
+            </div>
+
+            <div
+              id="formStatus"
+              class="form-status"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <p class="footer-copy">
+            © 2025 Abel Castillo &mdash; Diseñado y desarrollado con precisión.
+          </p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="#hero">Inicio</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#contact">Contacto</a>
+            <a
+              href="https://github.com/Abel-Castill0"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="JS/script.js" defer></script>
+  </body>
+</html>
