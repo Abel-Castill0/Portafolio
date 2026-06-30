@@ -38,6 +38,9 @@
   --nav-h: 70px;
   --section-gap: 110px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --violet: #8B5CF6;
+  --violet-dim: rgba(139, 92, 246, 0.12);
+  --wa-green: #25D366;
 }
 
 /* ── RESET & BASE ────────────────────────────────────────── */
@@ -444,27 +447,30 @@ section {
 }
 
 .hero-blob-1 {
-  width: 600px;
-  height: 600px;
-  background: rgba(99, 148, 255, 0.08);
-  top: -100px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99, 148, 255, 0.13) 0%, transparent 70%);
+  top: -150px;
   left: -200px;
+  animation: blobDrift 14s ease-in-out infinite alternate;
 }
 
 .hero-blob-2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(139, 92, 246, 0.07);
-  bottom: -50px;
-  right: -100px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.11) 0%, transparent 70%);
+  bottom: -80px;
+  right: -120px;
+  animation: blobDrift 18s ease-in-out infinite alternate-reverse;
 }
 
 .hero-blob-3 {
-  width: 300px;
-  height: 300px;
-  background: rgba(232, 184, 75, 0.05);
-  top: 40%;
-  right: 10%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+  top: 35%;
+  right: 8%;
+  animation: blobDrift 22s ease-in-out infinite alternate;
 }
 
 .hero-content {
@@ -879,8 +885,12 @@ section {
 
 .project-card:hover {
   border-color: var(--border-hi);
-  transform: translateY(-6px);
-  box-shadow: var(--shadow), var(--glow-blue);
+  transform: translateY(-9px) scale(1.01);
+  box-shadow: var(--shadow), var(--glow-blue), 0 0 0 1px rgba(99, 148, 255, 0.09);
+}
+
+.project-card.featured:hover {
+  box-shadow: var(--shadow), var(--glow-blue), 0 0 60px rgba(139, 92, 246, 0.1);
 }
 
 /* Contenedor de imagen */
@@ -1004,11 +1014,83 @@ section {
   flex: 1;
 }
 
+.project-client {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  margin: -4px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .project-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 4px 0;
+}
+
+/* ── Project meta: type label + status badge ── */
+.proj-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.proj-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-3);
+}
+
+.proj-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status-prod    { background: rgba(52,211,153,.13); color: #34d399; }
+.status-dev     { background: rgba(251,191,36,.13); color: #fbbf24; }
+.status-personal{ background: rgba(167,139,250,.13); color: #a78bfa; }
+.status-academic{ background: rgba(148,163,184,.1);  color: #94a3b8; }
+
+/* ── Tech details grid ── */
+.project-tech-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 10px 0 6px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.tech-row {
+  display: flex;
+  gap: 8px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.tech-label {
+  color: var(--text-3);
+  font-weight: 600;
+  min-width: 84px;
+  flex-shrink: 0;
+}
+
+.tech-vals {
+  color: var(--text-2);
 }
 
 .stack-tag {
@@ -1529,5 +1611,231 @@ footer {
 
   .contact-form {
     padding: 24px 20px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .radio-option {
+    width: 100%;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── FIELD VALIDATION ────────────────────────────────────── */
+.req {
+  color: #fb7185;
+  margin-left: 2px;
+}
+
+.field-error {
+  display: block;
+  font-size: 0.75rem;
+  color: #fb7185;
+  min-height: 1rem;
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.field-error:not(:empty) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-input.is-error,
+.form-textarea.is-error {
+  border-color: rgba(251, 113, 133, 0.55);
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.08);
+}
+
+.form-input.is-ok,
+.form-textarea.is-ok {
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+/* ── RADIO GROUP ─────────────────────────────────────────── */
+.radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-3);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border-hi);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+  position: relative;
+}
+
+.radio-mark::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.radio-option:has(input:checked) {
+  border-color: var(--border-hi);
+  background: var(--blue-dim);
+  color: var(--text);
+}
+
+.radio-option:has(input:checked) .radio-mark {
+  border-color: var(--blue);
+}
+
+.radio-option:has(input:checked) .radio-mark::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio-option:hover {
+  border-color: var(--border-hi);
+  color: var(--text);
+}
+
+/* ── WHATSAPP BUTTON ─────────────────────────────────────── */
+.btn-wa {
+  background: var(--wa-green);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.btn-wa:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
+  color: #fff;
+}
+
+/* ── WHATSAPP BUILDER FORM ───────────────────────────────── */
+.wa-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.18);
+  border-radius: var(--r-sm);
+  padding: 11px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--wa-green);
+}
+
+.wa-badge i {
+  font-size: 1.15rem;
+}
+
+.wa-alt {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-top: -8px;
+}
+
+.wa-alt-link {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.wa-alt-link:hover {
+  color: var(--cyan);
+}
+
+/* ── SELECT STYLING ──────────────────────────────────────── */
+select.form-input {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A7A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+select.form-input option {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* ── BLOB DRIFT ANIMATION ────────────────────────────────── */
+@keyframes blobDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(28px, 18px) scale(1.05); }
+}
+
+/* ── PREFERS REDUCED MOTION ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-label,
+  .hero-name,
+  .hero-role,
+  .hero-desc,
+  .hero-actions,
+  .hero-socials {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-blob {
+    animation: none;
   }
 }
