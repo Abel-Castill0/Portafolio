@@ -1,0 +1,32 @@
+---
+const certificates = [
+  { title: "Introducción a la Ciberseguridad", issuer: "Cisco Networking Academy", area: "Cybersecurity" },
+  { title: "Defensa de la Red", issuer: "Cisco Networking Academy", area: "Network Security" },
+  { title: "Seguridad de Puntos Finales", issuer: "Cisco Networking Academy", area: "Endpoint Security" },
+  { title: "Introducción a Redes", issuer: "Cisco Networking Academy", area: "Networking" },
+  { title: "Excel Avanzado", issuer: "Microsoft", area: "Data & Productivity" },
+  { title: "Excel Intermedio", issuer: "Microsoft", area: "Data & Productivity" },
+];
+---
+
+<section class="certificates" id="certificados" aria-labelledby="certificates-title" data-webgl-zone>
+  <div class="section-intro" data-reveal>
+    <h2 id="certificates-title">Aprendizaje<br />continuo</h2>
+    <p>Formación aplicada en seguridad, redes, datos y productividad.</p>
+  </div>
+  <div class="certificate-list">
+    {certificates.map((certificate, index) => (
+      <details class="certificate-item" data-reveal>
+        <summary>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <strong>{certificate.title}</strong>
+          <span aria-hidden="true">+</span>
+        </summary>
+        <div>
+          <p>{certificate.issuer}</p>
+          <span>{certificate.area}</span>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

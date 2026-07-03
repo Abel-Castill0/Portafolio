@@ -1,0 +1,18 @@
+---
+const stack = ["Java", "JavaScript", "Python", "PHP", "SQL", "HTML", "CSS", "React", "React Native", "Expo", "Spring Boot", "Bootstrap", "Tailwind"];
+---
+
+<section class="stack-section" id="stack" aria-labelledby="stack-title" data-webgl-zone>
+  <div class="stack-heading" data-reveal>
+    <h2 id="stack-title">Stack técnico</h2>
+    <p>Herramientas elegidas por el problema, no por tendencia.</p>
+  </div>
+  <div class="stack-marquee" aria-label={`Tecnologías: ${stack.join(", ")}`}>
+    <div class="stack-track">
+      {stack.map((item) => <span>{item}</span>)}
+    </div>
+    <div class="stack-track" aria-hidden="true">
+      {stack.map((item) => <span>{item}</span>)}
+    </div>
+  </div>
+</section>

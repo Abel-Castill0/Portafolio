@@ -4,7 +4,7 @@ interface Props {
   title: string;
   description: string;
   stack: string;
-  href: string;
+  href?: string;
   image?: string;
 }
 
@@ -19,8 +19,8 @@ const { index, title, description, stack, href, image } = Astro.props;
     <span class="project-stack">{stack}</span>
   </div>
   {
-    image && (
-      <div class="project-media" data-title={title}>
+    <div class:list={["project-media", { "is-fallback": !image }]} data-title={title}>
+      {image && (
         <img
           src={image}
           width="960"
@@ -29,8 +29,8 @@ const { index, title, description, stack, href, image } = Astro.props;
           alt={`Captura del proyecto ${title}`}
           onerror="this.parentElement?.classList.add('is-fallback');this.remove()"
         />
-      </div>
-    )
+      )}
+    </div>
   }
-  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${title}`}>↗</a>
+  {href ? <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${title}`}>↗</a> : <span class="project-private">Privado</span>}
 </article>
