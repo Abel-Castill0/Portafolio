@@ -1,0 +1,36 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  description: string;
+  stack: string;
+  href: string;
+  image?: string;
+}
+
+const { index, title, description, stack, href, image } = Astro.props;
+---
+
+<article class="project-row" data-reveal>
+  <span class="project-index">{index}</span>
+  <div class="project-copy">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="project-stack">{stack}</span>
+  </div>
+  {
+    image && (
+      <div class="project-media" data-title={title}>
+        <img
+          src={image}
+          width="960"
+          height="540"
+          loading="lazy"
+          alt={`Captura del proyecto ${title}`}
+          onerror="this.parentElement?.classList.add('is-fallback');this.remove()"
+        />
+      </div>
+    )
+  }
+  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${title}`}>↗</a>
+</article>

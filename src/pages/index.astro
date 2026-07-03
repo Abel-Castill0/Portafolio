@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WebGLScene from "../components/WebGLScene.astro";
+import ProjectRow from "../components/ProjectRow.astro";
+
+const base = import.meta.env.BASE_URL;
+const projects = [
+  { index: "01", title: "DPP Control", description: "Operación, caja y reportes convertidos en una interfaz de decisión.", stack: "Next.js · TypeScript · PostgreSQL", href: "https://dpp-pink.vercel.app/login", image: `${base}img/project-dpp.webp` },
+  { index: "02", title: "TalentLens", description: "Inteligencia aplicada al análisis de talento y pipelines de selección.", stack: "React · FastAPI · IA", href: "https://talentlens-nu.vercel.app", image: `${base}img/project-talentlens.webp` },
+  { index: "03", title: "Avila Parfums", description: "Catálogo sensorial diseñado para acelerar descubrimiento y compra.", stack: "HTML · CSS · JavaScript", href: "https://www.avilaparfums.com", image: `${base}img/avilaparfums.png` },
+  { index: "04", title: "Dual Ingeniería", description: "Presencia técnica y captación comercial para ingeniería eléctrica.", stack: "PHP · MySQL · JavaScript", href: "https://abel-castill0.github.io/dual-ingenieria/", image: `${base}img/DualIngenieria.png` },
+];
+---
+
+<BaseLayout title="Abel Castillo — Sistemas digitales con criterio" description="Portafolio de Abel Castillo: desarrollo web, sistemas internos, automatización e inteligencia aplicada.">
+  <WebGLScene />
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Abel Castillo, inicio">AC<span>®</span></a>
+    <nav aria-label="Principal">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#perfil">Perfil</a>
+      <a class="nav-cta" href="#contacto">Conversemos</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <p class="availability">Disponible para proyectos selectos · Lima, PE</p>
+      <h1>
+        Sistemas que<br />
+        <span>mueven negocios.</span>
+      </h1>
+      <div class="hero-foot">
+        <p>Ingeniería industrial, código y diseño interactivo para convertir procesos complejos en productos digitales claros.</p>
+        <a href="#trabajo">Explorar trabajo ↓</a>
+      </div>
+    </section>
+
+    <section class="work" id="trabajo">
+      <div class="section-intro" data-reveal>
+        <h2>Trabajo<br />seleccionado</h2>
+        <p>Productos reales. Problemas reales. Menos espectáculo gratuito; más sistemas que funcionan.</p>
+      </div>
+      <div class="project-list">
+        {projects.map((project) => <ProjectRow {...project} />)}
+      </div>
+    </section>
+
+    <section class="profile" id="perfil">
+      <div class="profile-heading">
+        <div>
+          <p data-reveal>Perfil / 2026</p>
+          <h2 data-reveal>Diseño la interfaz.<br />Entiendo el proceso.<br /><span>Construyo el sistema.</span></h2>
+        </div>
+        <img src={`${base}img/portrait-abel.webp`} width="1800" height="2400" loading="lazy" alt="Retrato de Abel Castillo" data-reveal />
+      </div>
+      <div class="profile-grid" data-reveal>
+        <p>Estudiante de Ingeniería Industrial y desarrollador full stack enfocado en sistemas internos, datos, automatización y experiencias web de alto impacto.</p>
+        <ul>
+          <li>Frontend / Backend</li>
+          <li>Producto / Procesos</li>
+          <li>Datos / IA aplicada</li>
+          <li>UI / Motion systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <p>¿Tienes un proceso roto o una idea ambiciosa?</p>
+      <h2>Hagámoslo<br /><span>inevitable.</span></h2>
+      <div>
+        <a href="mailto:abelcastillotrabajo@gmail.com">abelcastillotrabajo@gmail.com</a>
+        <a href="https://wa.me/51987945850" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© {new Date().getFullYear()} Abel Castillo</span>
+    <a href="https://github.com/Abel-Castill0" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </footer>
+
+  <script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: ({ progress }) => dispatchEvent(new CustomEvent("webgl:progress", { detail: { progress } })),
+      });
+
+      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
+        gsap.from(element, {
+          y: 48,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power4.out",
+          scrollTrigger: { trigger: element, start: "top 88%", once: true },
+        });
+      });
+
+      document.querySelectorAll<HTMLElement>(".project-row").forEach((row) => {
+        const focus = (active: boolean) => dispatchEvent(new CustomEvent("webgl:focus", { detail: { active } }));
+        row.addEventListener("pointerenter", () => focus(true));
+        row.addEventListener("pointerleave", () => focus(false));
+        row.addEventListener("focusin", () => focus(true));
+        row.addEventListener("focusout", () => focus(false));
+      });
+    }
+  </script>
+</BaseLayout>

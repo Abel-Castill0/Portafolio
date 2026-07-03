@@ -1,5 +1,5 @@
 /* ============================================================
-   ABEL CASTILLO — PORTFOLIO 2025 / JS
+   ABEL CASTILLO — PORTFOLIO 2025 / JS · Rediseño Premium
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,38 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* ── LENIS SMOOTH SCROLL ────────────────────────────────── */
-  if (typeof Lenis !== "undefined" && !prefersReducedMotion) {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      smoothWheel: true,
-    });
-
-    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-      lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      (function rafLenis(time) {
-        lenis.raf(time);
-        requestAnimationFrame(rafLenis);
-      })(performance.now());
-    }
-  }
-
   /* ── GSAP SCROLL ANIMATIONS ─────────────────────────────── */
   if (
     typeof gsap !== "undefined" &&
     typeof ScrollTrigger !== "undefined" &&
     !prefersReducedMotion
   ) {
-    if (!gsap.plugins?.scrollTrigger) gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-    /* Section reveals (elements with .reveal, excluding project cards) */
-    document.querySelectorAll(".reveal:not(.project-card)").forEach((el) => {
+    // Revelado de secciones (excepto tarjetas de proyecto que se animan en batch)
+    document.querySelectorAll(".reveal:not(.project-card):not(.service-card):not(.featured-card):not(.process-step)").forEach((el) => {
       const delay = el.classList.contains("reveal-delay-5")
         ? 0.45
         : el.classList.contains("reveal-delay-4")
@@ -67,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-    /* Project card stagger entrance */
+    // Entrada escalonada para tarjetas de proyecto
     ScrollTrigger.batch(".project-card", {
       onEnter: (elements) => {
         gsap.fromTo(
@@ -86,12 +64,33 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top 88%",
       once: true,
     });
-  } else {
-    /* Fallback: CSS-class reveal via IntersectionObserver */
+
+    // También animar tarjetas de servicios, featured, etc.
+    ScrollTrigger.batch(".service-card, .featured-card, .process-step", {
+      onEnter: (elements) => {
+        gsap.fromTo(
+          elements,
+          { autoAlpha: 0, y: 30 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.06,
+            ease: "power2.out",
+          }
+        );
+      },
+      start: "top 90%",
+      once: true,
+    });
+  } else if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    // Fallback con IntersectionObserver
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("reveal-pending"));
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
+            e.target.classList.remove("reveal-pending");
             e.target.classList.add("visible");
             revealObserver.unobserve(e.target);
           }
@@ -118,20 +117,61 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("navToggle");
   const drawer = document.getElementById("navDrawer");
   const drawerLinks = drawer ? drawer.querySelectorAll("a") : [];
+  let lastFocusedElement = null;
+
+  function setDrawerState(isOpen) {
+    toggle.classList.toggle("open", isOpen);
+    drawer.classList.toggle("open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    drawer.setAttribute("aria-hidden", String(!isOpen));
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    if (isOpen) {
+      lastFocusedElement = document.activeElement;
+      drawerLinks[0]?.focus();
+    } else if (lastFocusedElement) {
+      lastFocusedElement.focus();
+      lastFocusedElement = null;
+    }
+  }
 
   toggle?.addEventListener("click", () => {
-    toggle.classList.toggle("open");
-    drawer.classList.toggle("open");
-    document.body.style.overflow = drawer.classList.contains("open")
-      ? "hidden"
-      : "";
+    setDrawerState(!drawer.classList.contains("open"));
   });
+
   drawerLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      toggle.classList.remove("open");
-      drawer.classList.remove("open");
-      document.body.style.overflow = "";
+      setDrawerState(false);
     });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!drawer?.classList.contains("open")) return;
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setDrawerState(false);
+      return;
+    }
+
+    if (event.key === "Tab" && drawerLinks.length) {
+      const first = drawerLinks[0];
+      const last = drawerLinks[drawerLinks.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768 && drawer?.classList.contains("open")) {
+      setDrawerState(false);
+    }
   });
 
   /* ── ACTIVE NAV LINK ────────────────────────────────────── */
@@ -157,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ── TYPING EFFECT ──────────────────────────────────────── */
   const typeTarget = document.getElementById("typing-role");
-  if (typeTarget) {
+  if (typeTarget && !prefersReducedMotion) {
     const roles = [
       "Desarrollador Web",
       "Full Stack Developer",
@@ -219,8 +259,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { threshold: 0.5 }
   );
-
-  counters.forEach((c) => counterObserver.observe(c));
+  counters.forEach((c) => {
+    if (prefersReducedMotion) {
+      c.textContent = c.dataset.count + (c.dataset.suffix || "");
+    } else {
+      counterObserver.observe(c);
+    }
+  });
 
   /* ── DRAGGABLE CERT SCROLL ──────────────────────────────── */
   const certsScroll = document.querySelector(".certs-scroll");
@@ -261,11 +306,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function setErr(f, msg) {
       f.el.classList.add("is-error");
       f.el.classList.remove("is-ok");
+      f.el.setAttribute("aria-invalid", "true");
       f.err.textContent = msg;
     }
     function setOk(f) {
       f.el.classList.remove("is-error");
       f.el.classList.add("is-ok");
+      f.el.setAttribute("aria-invalid", "false");
       f.err.textContent = "";
     }
 
@@ -310,49 +357,24 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open(waHref, "_blank", "noopener,noreferrer");
         setTimeout(() => { window.location.href = mailHref; }, 900);
         showSuccess("Abriendo WhatsApp y preparando el correo…");
-      } else {
-        statusEl.className = "form-status error";
-        statusEl.textContent = "✗ Preferencia de contacto no válida. Selecciona una opción.";
+      }
+
+      function showSuccess(msg) {
+        statusEl.className = "form-status success";
+        statusEl.textContent = "✓ " + msg;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Enviado';
+        setTimeout(() => {
+          statusEl.className = "form-status";
+          statusEl.textContent = "";
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje';
+          Object.values(F).forEach((f) => { f.el.classList.remove("is-ok"); });
+        }, 6000);
       }
     });
-
-    function showSuccess(msg) {
-      statusEl.className = "form-status success";
-      statusEl.textContent = "✓ " + msg;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Enviado';
-      setTimeout(() => {
-        statusEl.className = "form-status";
-        statusEl.textContent = "";
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje';
-        Object.values(F).forEach((f) => { f.el.classList.remove("is-ok"); });
-      }, 6000);
-    }
   }
 
-  /* ── MOUSE GLOW EFFECT (desktop only) ───────────────────── */
-  if (
-    window.matchMedia("(min-width: 1024px)").matches &&
-    !prefersReducedMotion
-  ) {
-    const glow = document.createElement("div");
-    glow.setAttribute("aria-hidden", "true");
-    glow.style.cssText = `
-      position: fixed; width: 500px; height: 500px;
-      border-radius: 50%; pointer-events: none; z-index: 0;
-      background: radial-gradient(circle, rgba(99,148,255,0.04) 0%, transparent 70%);
-      transform: translate(-50%,-50%);
-      transition: left 0.15s ease, top 0.15s ease;
-    `;
-    document.body.appendChild(glow);
-    window.addEventListener(
-      "mousemove",
-      (e) => {
-        glow.style.left = e.clientX + "px";
-        glow.style.top = e.clientY + "px";
-      },
-      { passive: true }
-    );
-  }
+  const currentYear = document.getElementById("currentYear");
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
 });

@@ -1,0 +1,124 @@
+---
+const normalMap = `${import.meta.env.BASE_URL}img/titanium-normal.webp`;
+---
+
+<canvas id="webgl-scene" data-normal-map={normalMap} aria-hidden="true"></canvas>
+
+<script>
+  import * as THREE from "three";
+
+  const canvas = document.querySelector<HTMLCanvasElement>("#webgl-scene");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (canvas && !reduceMotion) {
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.z = 4.8;
+
+    const geometry = new THREE.PlaneGeometry(7, 7, 96, 96);
+    const normalTexture = new THREE.TextureLoader().load(canvas.dataset.normalMap ?? "");
+    normalTexture.wrapS = normalTexture.wrapT = THREE.RepeatWrapping;
+    normalTexture.colorSpace = THREE.SRGBColorSpace;
+
+    const uniforms = {
+      uTime: { value: 0 },
+      uScroll: { value: 0 },
+      uFocus: { value: 0 },
+      uPointer: { value: new THREE.Vector2() },
+      uTexture: { value: normalTexture },
+      uColor: { value: new THREE.Color(0xb7ff3c) },
+    };
+
+    const material = new THREE.ShaderMaterial({
+      uniforms,
+      transparent: true,
+      depthWrite: false,
+      vertexShader: `
+        uniform float uTime;
+        uniform float uScroll;
+        uniform float uFocus;
+        uniform vec2 uPointer;
+        uniform sampler2D uTexture;
+        varying float vEnergy;
+
+        void main() {
+          vec3 p = position;
+          float textureField = texture2D(uTexture, uv * 1.35 + vec2(uTime * .006, -uScroll * .08)).r;
+          float wave = sin(p.x * 1.8 + uTime * .42) * .16 + cos(p.y * 1.45 - uTime * .31) * .12;
+          float pointerField = exp(-distance(uv, uPointer * .14 + .5) * 5.0) * .28;
+          p.z += wave + textureField * (.22 + uFocus * .18) + pointerField;
+          p.y += uScroll * .7;
+          vEnergy = clamp(textureField + pointerField + uFocus * .25, 0.0, 1.0);
+          vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
+          gl_PointSize = (2.0 + vEnergy * 2.6) * (5.0 / -mvPosition.z);
+          gl_Position = projectionMatrix * mvPosition;
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 uColor;
+        varying float vEnergy;
+
+        void main() {
+          float disc = 1.0 - smoothstep(.22, .5, distance(gl_PointCoord, vec2(.5)));
+          gl_FragColor = vec4(uColor, disc * (.38 + vEnergy * .58));
+        }
+      `,
+    });
+    const field = new THREE.Points(geometry, material);
+    field.rotation.x = -0.72;
+    field.rotation.z = 0.18;
+    scene.add(field);
+
+    const pointer = new THREE.Vector2();
+    let frame = 0;
+    let targetFocus = 0;
+
+    const resize = () => {
+      const width = innerWidth;
+      const height = innerHeight;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    const move = (event: PointerEvent) => {
+      pointer.x = (event.clientX / innerWidth - 0.5) * 2;
+      pointer.y = (event.clientY / innerHeight - 0.5) * 2;
+      uniforms.uPointer.value.set(pointer.x, -pointer.y);
+    };
+
+    const syncScroll = (event: Event) => {
+      const detail = (event as CustomEvent<{ progress: number }>).detail;
+      uniforms.uScroll.value = detail.progress;
+    };
+
+    const syncFocus = (event: Event) => {
+      const detail = (event as CustomEvent<{ active: boolean }>).detail;
+      targetFocus = detail.active ? 1 : 0;
+    };
+
+    const render = (time = 0) => {
+      uniforms.uTime.value = time * 0.001;
+      uniforms.uFocus.value += (targetFocus - uniforms.uFocus.value) * 0.06;
+      field.rotation.z += (pointer.x * 0.08 + uniforms.uScroll.value * 0.28 - field.rotation.z) * 0.025;
+      field.position.x += (pointer.x * 0.18 - field.position.x) * 0.035;
+      field.position.y += (-pointer.y * 0.12 - field.position.y) * 0.03;
+      renderer.render(scene, camera);
+      frame = requestAnimationFrame(render);
+    };
+
+    resize();
+    addEventListener("resize", resize, { passive: true });
+    addEventListener("pointermove", move, { passive: true });
+    addEventListener("webgl:progress", syncScroll);
+    addEventListener("webgl:focus", syncFocus);
+    document.addEventListener("visibilitychange", () => {
+      cancelAnimationFrame(frame);
+      if (!document.hidden) frame = requestAnimationFrame(render);
+    });
+    frame = requestAnimationFrame(render);
+  }
+</script>
