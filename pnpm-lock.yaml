@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.9(prettier@3.9.4)(typescript@5.9.3)
       astro:
         specifier: ^5.12.0
         version: 5.18.2(rollup@4.62.2)(typescript@5.9.3)(yaml@2.9.0)
@@ -20,13 +17,16 @@ importers:
       three:
         specifier: ^0.178.0
         version: 0.178.0
-      typescript:
-        specifier: ^5.8.3
-        version: 5.9.3
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.9(prettier@3.9.4)(typescript@5.9.3)
       '@types/three':
         specifier: ^0.178.1
         version: 0.178.1
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
 
 packages:
 

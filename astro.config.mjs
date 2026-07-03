@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://abel-castill0.github.io",
-  base: "/Portafolio",
+  site: process.env.SITE_URL ?? "https://portfolio-new.vercel.app",
+  base: "/",
   output: "static",
   build: { assets: "assets" },
 });
