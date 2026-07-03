@@ -9,16 +9,27 @@ const normalMap = `${import.meta.env.BASE_URL}img/titanium-normal.webp`;
 
   const canvas = document.querySelector<HTMLCanvasElement>("#webgl-scene");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const compactDevice = matchMedia("(max-width: 640px), (pointer: coarse)").matches;
+  const lowPower = compactDevice || (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+  const supportsWebGL = (() => {
+    try {
+      const probe = document.createElement("canvas");
+      return Boolean(probe.getContext("webgl2") || probe.getContext("webgl"));
+    } catch {
+      return false;
+    }
+  })();
 
-  if (canvas && !reduceMotion) {
+  if (canvas && !reduceMotion && supportsWebGL) {
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+    renderer.setPixelRatio(Math.min(devicePixelRatio, lowPower ? 1.05 : 1.75));
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
     camera.position.z = 4.8;
 
-    const geometry = new THREE.PlaneGeometry(7, 7, 96, 96);
+    const segments = lowPower ? 36 : 96;
+    const geometry = new THREE.PlaneGeometry(7, 7, segments, segments);
     const normalTexture = new THREE.TextureLoader().load(canvas.dataset.normalMap ?? "");
     normalTexture.wrapS = normalTexture.wrapT = THREE.RepeatWrapping;
     normalTexture.colorSpace = THREE.SRGBColorSpace;
@@ -113,7 +124,7 @@ const normalMap = `${import.meta.env.BASE_URL}img/titanium-normal.webp`;
 
     resize();
     addEventListener("resize", resize, { passive: true });
-    addEventListener("pointermove", move, { passive: true });
+    if (!lowPower) addEventListener("pointermove", move, { passive: true });
     addEventListener("webgl:progress", syncScroll);
     addEventListener("webgl:focus", syncFocus);
     const visibilityChange = () => {
@@ -141,5 +152,7 @@ const normalMap = `${import.meta.env.BASE_URL}img/titanium-normal.webp`;
     addEventListener("pagehide", cleanup, { once: true });
     document.addEventListener("astro:before-swap", cleanup, { once: true });
     frame = requestAnimationFrame(render);
+  } else {
+    canvas?.classList.add("is-fallback");
   }
 </script>

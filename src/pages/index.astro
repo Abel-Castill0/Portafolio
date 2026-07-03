@@ -18,11 +18,14 @@ const projects = [
 ];
 ---
 
-<BaseLayout title="Abel Castillo — Sistemas digitales con criterio" description="Portafolio de Abel Castillo: desarrollo web, sistemas internos, automatización e inteligencia aplicada.">
+<BaseLayout title="Abel Castillo — Ingeniero de Software" description="Ingeniero de Software especializado en desarrollo Fullstack, IA aplicada, sistemas escalables y experiencias digitales de alto impacto.">
   <WebGLScene />
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="Abel Castillo, inicio">AC<span>®</span></a>
-    <nav aria-label="Principal">
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir navegación" aria-controls="primary-nav" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav id="primary-nav" aria-label="Principal">
       <a href="#trabajo">Trabajo</a>
       <a href="#stack">Stack</a>
       <a href="#perfil">Perfil</a>
@@ -38,7 +41,7 @@ const projects = [
         <span>mueven negocios.</span>
       </h1>
       <div class="hero-foot">
-        <p>Ingeniería industrial, código y diseño interactivo para convertir procesos complejos en productos digitales claros.</p>
+        <p>Ingeniería de Software, código y diseño interactivo para convertir procesos complejos en productos digitales claros.</p>
         <a href="#trabajo">Explorar trabajo ↓</a>
       </div>
     </section>
@@ -100,6 +103,34 @@ const projects = [
     import gsap from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+    const menuButton = document.querySelector<HTMLButtonElement>("#menu-toggle");
+    const primaryNav = document.querySelector<HTMLElement>("#primary-nav");
+    const menuController = new AbortController();
+
+    const setMenu = (open: boolean) => {
+      if (!menuButton || !primaryNav) return;
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Cerrar navegación" : "Abrir navegación");
+      menuButton.classList.toggle("is-open", open);
+      primaryNav.classList.toggle("is-open", open);
+    };
+
+    menuButton?.addEventListener("click", () => {
+      setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+    }, { signal: menuController.signal });
+    primaryNav?.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) setMenu(false);
+    }, { signal: menuController.signal });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+        menuButton?.focus();
+      }
+    }, { signal: menuController.signal });
+    addEventListener("resize", () => {
+      if (innerWidth > 760) setMenu(false);
+    }, { signal: menuController.signal, passive: true });
+
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
       gsap.registerPlugin(ScrollTrigger);
       const controller = new AbortController();
@@ -145,5 +176,9 @@ const projects = [
       addEventListener("pagehide", cleanup, { once: true });
       document.addEventListener("astro:before-swap", cleanup, { once: true });
     }
+
+    const cleanupMenu = () => menuController.abort();
+    addEventListener("pagehide", cleanupMenu, { once: true });
+    document.addEventListener("astro:before-swap", cleanupMenu, { once: true });
   </script>
 </BaseLayout>

@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const roles = [
       "Desarrollador Web",
       "Full Stack Developer",
-      "Ingeniero Industrial",
+      "Ingeniero de Software",
       "Sistemas & Procesos",
     ];
     let ri = 0,
