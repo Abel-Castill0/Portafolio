@@ -4,7 +4,6 @@ import WebGLScene from "../components/WebGLScene.astro";
 import ProjectRow from "../components/ProjectRow.astro";
 import StackMarquee from "../components/StackMarquee.astro";
 import Certificates from "../components/Certificates.astro";
-import ContactForm from "../components/ContactForm.astro";
 import SocialRail from "../components/SocialRail.astro";
 
 const base = import.meta.env.BASE_URL;
@@ -16,14 +15,11 @@ const projects = [
   { index: "05", title: "App de Gym", description: "Gestión de membresías, rutinas y seguimiento operativo para centros deportivos.", stack: "React · Node.js · MongoDB", href: "https://gimnasio-murex.vercel.app", image: `${base}img/GYM.webp` },
   { index: "06", title: "MOVA", description: "Experiencia móvil enfocada en movimiento, hábitos y progreso personal.", stack: "React Native · Expo · JavaScript" },
   { index: "07", title: "E-commerce Perfumes", description: "Catálogo, recomendación y checkout conversacional para venta de fragancias.", stack: "JavaScript · CSS · WhatsApp API", href: "https://jnafragance.com" },
-  { index: "08", title: "App Gestión Pastelería", description: "Pedidos, producción, inventario y control comercial en un flujo unificado.", stack: "Java · Spring Boot · SQL · React" },
-  { index: "09", title: "Intranet Tienda Ropa", description: "Operación interna para productos, ventas, usuarios y trazabilidad de stock.", stack: "PHP · SQL · Bootstrap · JavaScript" },
 ];
 ---
 
 <BaseLayout title="Abel Castillo — Sistemas digitales con criterio" description="Portafolio de Abel Castillo: desarrollo web, sistemas internos, automatización e inteligencia aplicada.">
   <WebGLScene />
-  <SocialRail />
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="Abel Castillo, inicio">AC<span>®</span></a>
     <nav aria-label="Principal">
@@ -84,18 +80,20 @@ const projects = [
 
     <Certificates />
 
-    <section class="contact" id="contacto" data-webgl-zone>
-      <div class="contact-heading" data-reveal>
-        <p>¿Tienes un proceso roto o una idea ambiciosa?</p>
-        <h2>Hagámoslo<br /><span>inevitable.</span></h2>
-      </div>
-      <ContactForm />
-    </section>
   </main>
 
-  <footer>
-    <span>© {new Date().getFullYear()} Abel Castillo</span>
-    <a href="https://github.com/Abel-Castill0" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  <footer class="contact" id="contacto" data-webgl-zone>
+    <p class="contact-prompt" data-reveal>¿Tienes una idea ambiciosa?</p>
+    <a class="contact-cta" href="mailto:abelcastillotrabajo@gmail.com" aria-label="Escribir a Abel Castillo">
+      <span data-text="HABLEMOS">HABLEMOS</span>
+    </a>
+    <div class="footer-base">
+      <SocialRail />
+      <div class="footer-meta">
+        <span>Lima, Perú</span>
+        <span>© {new Date().getFullYear()} Abel Castillo</span>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -114,11 +112,11 @@ const projects = [
 
         gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
           gsap.from(element, {
-            y: 48,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power4.out",
-            scrollTrigger: { trigger: element, start: "top 88%", once: true },
+            y: 32,
+            autoAlpha: 0,
+            duration: 1.05,
+            ease: "expo.out",
+            scrollTrigger: { trigger: element, start: "top 90%", once: true },
           });
         });
 
